@@ -1,2 +1,3 @@
 rootProject.name='Quick RV Adapter'
-include ':app'
+include ':library'
+include ':sampleapp'
