@@ -24,6 +24,7 @@ dependencies {
 
 ## Usage
 
+For a list of data:
 ```
 private val rvAdapter by lazy {
  adapter(R.layout.item_layout, listOf("One", "Two")) {
@@ -35,3 +36,14 @@ private val rvAdapter by lazy {
  }
 }
 ```
+For a flow stream:
+```
+private val rvAdapter by lazy {
+ adapter(R.layout.item_layout, flowOf("One", "Two"), coroutineScope) {
+     bindings {
+         bind<TextView>(R.id.count_text) { datum, countTextView ->
+             countTextView.text = datum
+         }
+     }
+ }
+}
